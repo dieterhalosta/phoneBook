@@ -1,18 +1,17 @@
-package transfer;
+package org.fasttrackit.transfer;
 
-import java.io.StringReader;
+public class UpdateEntryRequest {
 
-public class DeleteEntryWithParamsRequest {
-    private String firsName;
+    private String firstName;
     private String lastName;
     private int number;
 
-    public String getFirsName() {
-        return firsName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirsName(String firsName) {
-        this.firsName = firsName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -33,8 +32,8 @@ public class DeleteEntryWithParamsRequest {
 
     @Override
     public String toString() {
-        return "DeleteEntryWithParamsRequest{" +
-                "firsName='" + firsName + '\'' +
+        return "UpdateEntryRequest{" +
+                "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", number=" + number +
                 '}';

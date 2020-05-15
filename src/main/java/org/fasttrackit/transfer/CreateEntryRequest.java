@@ -1,8 +1,6 @@
-package transfer;
+package org.fasttrackit.transfer;
 
-import java.io.StringReader;
-
-public class UpdateEntryRequest {
+public class CreateEntryRequest {
 
     private String firstName;
     private String lastName;
@@ -34,7 +32,7 @@ public class UpdateEntryRequest {
 
     @Override
     public String toString() {
-        return "UpdateEntryRequest{" +
+        return "CreateEntryRequest{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", number=" + number +

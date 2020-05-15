@@ -1,12 +1,11 @@
-package persistance;
+package org.fasttrackit.persistance;
 
-import domanin.Agenda;
-import transfer.CreateEntryRequest;
-import transfer.DeleteEntryWithParamsRequest;
-import transfer.UpdateEntryRequest;
+import org.fasttrackit.domanin.Agenda;
+import org.fasttrackit.transfer.CreateEntryRequest;
+import org.fasttrackit.transfer.DeleteEntryWithParamsRequest;
+import org.fasttrackit.transfer.UpdateEntryRequest;
 
 import java.io.IOException;
-import java.io.StringReader;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

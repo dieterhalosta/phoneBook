@@ -1,10 +1,19 @@
-package transfer;
+package org.fasttrackit.domanin;
 
-public class CreateEntryRequest {
+public class Agenda {
 
+    private long id;
     private String firstName;
     private String lastName;
     private int number;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -32,8 +41,9 @@ public class CreateEntryRequest {
 
     @Override
     public String toString() {
-        return "CreateEntryRequest{" +
-                "firstName='" + firstName + '\'' +
+        return "Agenda{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", number=" + number +
                 '}';
