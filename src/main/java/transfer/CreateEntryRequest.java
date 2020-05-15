@@ -1,19 +1,10 @@
-package domanin;
+package transfer;
 
-public class Agenda {
+public class CreateEntryRequest {
 
-    private long id;
     private String firstName;
     private String lastName;
     private int number;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -41,9 +32,8 @@ public class Agenda {
 
     @Override
     public String toString() {
-        return "Agenda{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
+        return "CreateEntryRequest{" +
+                "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", number=" + number +
                 '}';
