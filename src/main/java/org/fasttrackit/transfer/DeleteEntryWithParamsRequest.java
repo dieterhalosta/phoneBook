@@ -4,6 +4,7 @@ public class DeleteEntryWithParamsRequest {
     private String firsName;
     private String lastName;
     private int number;
+    private String email;
 
     public String getFirsName() {
         return firsName;
@@ -29,12 +30,21 @@ public class DeleteEntryWithParamsRequest {
         this.number = number;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "DeleteEntryWithParamsRequest{" +
                 "firsName='" + firsName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", number=" + number +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

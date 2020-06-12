@@ -5,6 +5,7 @@ public class UpdateEntryRequest {
     private String firstName;
     private String lastName;
     private int number;
+    private String email;
 
     public String getFirstName() {
         return firstName;
@@ -30,12 +31,21 @@ public class UpdateEntryRequest {
         this.number = number;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "UpdateEntryRequest{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", number=" + number +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

@@ -5,6 +5,7 @@ public class CreateEntryRequest {
     private String firstName;
     private String lastName;
     private int number;
+    private String email;
 
     public String getFirstName() {
         return firstName;
@@ -30,12 +31,21 @@ public class CreateEntryRequest {
         this.number = number;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "CreateEntryRequest{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", number=" + number +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

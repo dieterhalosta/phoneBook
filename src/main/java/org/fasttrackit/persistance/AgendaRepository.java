@@ -13,20 +13,21 @@ import java.util.List;
 public class AgendaRepository {
 
     public void createEntry(CreateEntryRequest request) throws IOException, SQLException, ClassNotFoundException {
-        String sql = "INSERT INTO agenda (first_name, last_name, number) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO agenda (first_name, last_name, number, email) VALUES (?, ?, ?, ?)";
 
         try(Connection connection = DatabaseConfiguration.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, request.getFirstName());
             preparedStatement.setString(2, request.getLastName());
             preparedStatement.setInt(3, request.getNumber());
+            preparedStatement.setString(4, request.getEmail());
 
             preparedStatement.executeUpdate();
         }
     }
 
     public void updateEntry(long id, UpdateEntryRequest request) throws SQLException, IOException, ClassNotFoundException {
-        String sql = "UPDATE agenda SET first_name=?, last_name=?, number=? WHERE id=? ";
+        String sql = "UPDATE agenda SET first_name=?, last_name=?, number=?, email=? WHERE id=? ";
 
         try(Connection connection = DatabaseConfiguration.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(sql)){
@@ -34,7 +35,8 @@ public class AgendaRepository {
             preparedStatement.setString(1, request.getFirstName());
             preparedStatement.setString(2, request.getLastName());
             preparedStatement.setInt(3, request.getNumber());
-            preparedStatement.setLong(4, id);
+            preparedStatement.setString(4, request.getEmail());
+            preparedStatement.setLong(5, id);
 
             preparedStatement.executeUpdate();
         }
@@ -62,7 +64,7 @@ public class AgendaRepository {
     }
 
     public static List<Agenda> getAgenda() throws SQLException, IOException, ClassNotFoundException {
-        String sql = "SELECT id, first_name, last_name, number FROM agenda";
+        String sql = "SELECT id, first_name, last_name, number, email FROM agenda";
 
 
         List<Agenda> entries = new ArrayList<>();
@@ -79,6 +81,7 @@ public class AgendaRepository {
                 entry.setFirstName(resultSet.getString("first_name"));
                 entry.setLastName(resultSet.getString("last_name"));
                 entry.setNumber(resultSet.getInt("number"));
+                entry.setEmail(resultSet.getString("email"));
 
                 entries.add(entry);
             }
