@@ -24,9 +24,7 @@ public class EntryServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
-
+        addCorsHeaders(resp);
         CreateEntryRequest request = ObjectMapperConfiguration.OBJECT_MAPPER.readValue(req.getReader(), CreateEntryRequest.class);
 
         try {
@@ -38,6 +36,7 @@ public class EntryServlet extends HttpServlet {
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        addCorsHeaders(resp);
 
         final String id = req.getParameter("id");
 
@@ -53,6 +52,7 @@ public class EntryServlet extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        addCorsHeaders(resp);
         final String id = req.getParameter("id");
 
         try {
@@ -65,11 +65,23 @@ public class EntryServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        addCorsHeaders(resp);
         try {
             List<Agenda> entries = entryService.getEntry();
             ObjectMapperConfiguration.OBJECT_MAPPER.writeValue(resp.getWriter(), entries);
         } catch (SQLException | ClassNotFoundException e) {
             resp.sendError(500, "There was an error reaching the server. " + e.getMessage());
         }
+    }
+
+    @Override
+    protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        addCorsHeaders(resp);
+    }
+
+    private void addCorsHeaders(HttpServletResponse resp){
+        resp.addHeader("Access-Control-Allow-Origin","*");
+        resp.addHeader("Access-Control-Allow-Methods","POST, GET, PUT, DELETE");
+        resp.addHeader("Access-Control-Allow-Headers","content-type");
     }
 }
